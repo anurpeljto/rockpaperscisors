@@ -58,3 +58,32 @@ function playRound(playerSelection, computerSelection){
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
+
+function game(){
+    console.log("Playing 5 rounds");
+    let winCounterPlayer = 0;
+    let winCounterComputer = 0;
+    let pChoice = "";
+    for (let i = 0; i <5; i++){
+        pChoice = prompt("Rock, paper or scissors?");
+        let tempCounter = playRound(pChoice, getComputerChoice());
+        if (tempCounter == "You win!"){
+            winCounterPlayer++;
+        }
+        else if(tempCounter == "You lose!"){
+            winCounterComputer++;
+        }
+    }
+    if (winCounterPlayer > winCounterComputer){
+        console.log( "You won " + winCounterPlayer + " games out of 5! Congratulations");
+    }
+    else if(winCounterComputer > winCounterPlayer){
+        console.log( "You lost " + winCounterComputer + " games out of 5!");
+    }
+
+    else{
+        console.log("You tied!");
+    }
+}
+
+game();
